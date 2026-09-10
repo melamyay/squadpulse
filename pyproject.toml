@@ -1,0 +1,22 @@
+[project]
+name = "squadpulse"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2", "numpy", "pyarrow", "pyyaml", "requests",
+  "sqlalchemy>=2", "psycopg[binary]", "pandera", "typer",
+]
+
+[project.optional-dependencies]
+ml = ["scikit-learn", "torch", "mlflow", "shap"]
+agent = ["langchain", "langchain-ollama", "langchain-mistralai",
+         "chromadb", "sentence-transformers", "pymongo"]
+app = ["dash", "dash-bootstrap-components", "plotly"]
+dev = ["pytest", "ruff", "pre-commit"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
